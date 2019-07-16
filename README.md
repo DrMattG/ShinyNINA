@@ -4,5 +4,5 @@ To run this app:
 library(shiny)
 runGitHub( "ShinyNINA", "DrMattG")
 
-![](screenshot.png)
+![](https://github.com/DrMattG/ShinyNINA/blob/master/Screenshot.png)
 
