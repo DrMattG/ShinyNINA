@@ -19,17 +19,19 @@ d.tmp <- POST(url , body = data, encode = "json", verbose())
 dattable <- fromJSONstat(content(d.tmp, "text"))
 #head(dattable)
 
+### Add icon along with the title in the shinydashboard header
+
+title <- tags$a(href='https://www.nina.no',
+                tags$img(src="NINA_logo_sort_txt_engelsk_under.png", height="50", width="50"),
+                'NINA', target="_blank")
+
 #Build shinyapp
 #UI
 ui <- dashboardPage(
   
   dashboardHeader(
     
-    title = "Norway hunters Dashboard",
-    
-    titleWidth = 200
-    
-  ),
+    title = title, titleWidth=600),
   
   dashboardSidebar(
         sidebarMenu(
@@ -40,6 +42,9 @@ ui <- dashboardPage(
     ),
   
   dashboardBody(
+    tags$head(
+      tags$link(rel="stylesheet", type= "text/css", href="custom1.css"))
+    )
     
     tabsetPanel(
       
