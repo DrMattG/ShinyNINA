@@ -22,7 +22,7 @@ dattable <- fromJSONstat(content(d.tmp, "text"))
 ### Add icon along with the title in the shinydashboard header
 
 title <- tags$a(href='https://www.nina.no',
-                tags$img(src='NINA.png', height=50, width=50),
+                tags$img(src='https://github.com/DrMattG/ShinyNINA/blob/master/NINA.png', height=50, width=50),
                 'Norwegian hunters data', target="_blank")
 
 #Build shinyapp
