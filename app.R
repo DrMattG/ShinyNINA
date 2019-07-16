@@ -22,8 +22,8 @@ dattable <- fromJSONstat(content(d.tmp, "text"))
 ### Add icon along with the title in the shinydashboard header
 
 title <- tags$a(href='https://www.nina.no',
-                tags$img(src="NINA_logo_sort_txt_engelsk_under.png", height="50", width="50"),
-                'NINA', target="_blank")
+                tags$img(src='NINA.png', height=50, width=50),
+                'Norwegian hunters data', target="_blank")
 
 #Build shinyapp
 #UI
@@ -43,8 +43,7 @@ ui <- dashboardPage(
   
   dashboardBody(
     tags$head(
-      tags$link(rel="stylesheet", type= "text/css", href="custom1.css"))
-    )
+      tags$link(rel="stylesheet", type= "text/css", href="custom1.css")),
     
     tabsetPanel(
       
