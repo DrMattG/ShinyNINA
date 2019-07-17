@@ -51,7 +51,7 @@ ui <- dashboardPage(
       
       tabPanel(
         
-        title = "Main Dashboard",
+        title = "All hunters",
         
         value = "page1",
       fluidRow(
