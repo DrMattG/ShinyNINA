@@ -1,6 +1,8 @@
 # load the required packages
 library(shiny)
 require(shinydashboard)
+library(shinythemes)
+library(dashboardthemes)
 library(ggplot2)
 library(dplyr)
 ###########################
@@ -23,7 +25,7 @@ dattable <- fromJSONstat(content(d.tmp, "text"))
 
 title <- tags$a(href='https://www.nina.no',
                 tags$img(src='https://github.com/DrMattG/ShinyNINA/blob/master/NINA.png', height=50, width=50),
-                'Norwegian hunters data', target="_blank")
+                'Norwegian hunters data', target="_blank", style="color:#FFFFFF;")
 
 #Build shinyapp
 #UI
@@ -41,7 +43,9 @@ ui <- dashboardPage(
       )
     ),
   
-  dashboardBody(
+  dashboardBody(theme_nina,
+                tags$head(
+                  tags$link(rel="stylesheet", type= "text/css", href="custom1.css")),
     tags$head(
       tags$link(rel="stylesheet", type= "text/css", href="custom1.css")),
     
@@ -52,7 +56,7 @@ ui <- dashboardPage(
       tabPanel(
         
         title = "All hunters",
-        
+       
         value = "page1",
       fluidRow(
           valueBoxOutput("value1"),
@@ -161,7 +165,7 @@ output$value1 <- renderValueBox({
       formatC(total.hunters$sum, format="d", big.mark=',')
       ,paste('Total hunters:',max(dattable$`interval (year)`))
       ,icon = icon("male",lib='font-awesome')
-      ,color = "purple")})
+      ,color = "yellow")})
 output$value2 <- renderValueBox({
      valueBox(
       formatC(Lynx.hunters$sum, format="d", big.mark=',')
@@ -173,7 +177,7 @@ output$value3 <- renderValueBox({
       formatC(Grouse.hunters$sum, format="d", big.mark=',')
       ,paste('Total Grouse hunters:',max(dattable$`interval (year)`))
              ,icon = icon("kiwi-bird",lib='font-awesome')
-             ,color = "yellow") })
+             ,color = "red") })
 output$value4 <- renderValueBox({
   valueBox(
     formatC(Small.game$sum, format="d", big.mark=',')
@@ -185,19 +189,19 @@ output$value5 <- renderValueBox({
     formatC(Moose.hunting$sum, format="d", big.mark=',')
     ,paste('Total Moose hunters:',max(dattable$`interval (year)`))
     ,icon = icon("bar-chart-o")
-    ,color = "green")})
+    ,color = "orange")})
 output$value6 <- renderValueBox({
   valueBox(
     formatC(Roedeer.hunting$sum, format="d", big.mark=',')
     ,paste('Total Roe deer hunters:',max(dattable$`interval (year)`))
     ,icon = icon("bar-chart-o")
-    ,color = "yellow") })
+    ,color = "olive") })
   #creating the plotOutput content
   
   output$hunterbyyr <- renderPlot({
     ggplot(data = Active.hunters, 
            aes(x=`interval (year)`, y=value)) + 
-             geom_bar(position = "dodge", stat = "identity", fill="#2DCCD3") +
+             geom_bar(position = "dodge", stat = "identity", fill="#004F71") +
              ylab("Number of hunters") + 
              xlab("Season") +
              theme_classic()+
@@ -208,7 +212,7 @@ output$value6 <- renderValueBox({
   output$huntersbyRegion <- renderPlot({
    ggplot(data=Active.hunters,
           aes(x=`interval (year)`, y=value)) + 
-      geom_bar(position = "dodge", stat = "identity", fill="#2DCCD3") +
+      geom_bar(position = "dodge", stat = "identity", fill="#004F71") +
       ylab("Number of hunters") + 
       xlab("Season") +
       theme_classic()+
@@ -219,7 +223,7 @@ output$value6 <- renderValueBox({
     dattable %>% 
       filter(contents=="Lynx hunting") %>% 
       ggplot(.,aes(x=`interval (year)`, y=value)) + 
-      geom_bar(position = "dodge", stat = "identity", fill="#2DCCD3") +
+      geom_bar(position = "dodge", stat = "identity", fill="#004F71") +
       ylab("Number of hunters") + 
       xlab("Season") +
       theme_classic()+
@@ -231,7 +235,7 @@ output$value6 <- renderValueBox({
     dattable %>% 
       filter(contents=="Lynx hunting") %>% 
       ggplot(.,aes(x=`interval (year)`, y=value)) + 
-      geom_bar(position = "dodge", stat = "identity", fill="#2DCCD3") +
+      geom_bar(position = "dodge", stat = "identity", fill="#004F71") +
       ylab("Number of hunters") + 
       xlab("Season") +
       theme_classic()+
@@ -242,7 +246,7 @@ output$value6 <- renderValueBox({
     dattable %>% 
       filter(contents=="Grouse hunting") %>% 
       ggplot(.,aes(x=`interval (year)`, y=value)) + 
-      geom_bar(position = "dodge", stat = "identity", fill="#2DCCD3") +
+      geom_bar(position = "dodge", stat = "identity", fill="#004F71") +
       ylab("Number of hunters") + 
       xlab("Season") +
       theme_classic()+
@@ -254,7 +258,7 @@ output$value6 <- renderValueBox({
     dattable %>% 
       filter(contents=="Grouse hunting") %>% 
       ggplot(.,aes(x=`interval (year)`, y=value)) + 
-      geom_bar(position = "dodge", stat = "identity", fill="#2DCCD3") +
+      geom_bar(position = "dodge", stat = "identity", fill="#004F71") +
       ylab("Number of hunters") + 
       xlab("Season") +
       theme_classic()+

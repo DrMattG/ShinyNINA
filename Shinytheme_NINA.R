@@ -1,3 +1,5 @@
+#dark blue       blue     orange     purple      green       grey light blue     yellow 
+#"#004F71"  "#008C95"  "#E57200"  "#93328E"  "#7A9A01"  "#A2AAAD"  "#2DCCD3"  "#FFB25B" 
 library(shinydashboard)
 library(dashboardthemes)
 theme_nina <- shinyDashboardThemeDIY(
@@ -6,30 +8,30 @@ theme_nina <- shinyDashboardThemeDIY(
   appFontFamily = "Arial"
   ,appFontColor = "rgb(0,0,0)"
   ,primaryFontColor = "rgb(0,0,0)"
-  ,infoFontColor = "rgb(0,0,0)"
-  ,successFontColor = "rgb(0,0,0)"
-  ,warningFontColor = "rgb(0,0,0)"
-  ,dangerFontColor = "rgb(0,0,0)"
-  ,bodyBackColor = "rgb( 66,85,99)"
+  ,infoFontColor = "#A2AAAD"
+  ,successFontColor = "#A2AAAD"
+  ,warningFontColor = "#A2AAAD"
+  ,dangerFontColor = "#A2AAAD"
+  ,bodyBackColor = "#A2AAAD"
   
   ### header
-  ,logoBackColor = "rgb(45,204,211)"
+  ,logoBackColor = "#008C95"
   
-  ,headerButtonBackColor = "rgb(45,204,211)"
-  ,headerButtonIconColor = "rgb(45,204,211)"
-  ,headerButtonBackColorHover = "rgb(45,204,211)"
+  ,headerButtonBackColor = "#008C95"
+  ,headerButtonIconColor = "#008C95"
+  ,headerButtonBackColorHover = "#008C95"
   ,headerButtonIconColorHover = "rgb(0,0,0)"
   
-  ,headerBackColor = "rgb(45,204,211)"
+  ,headerBackColor = "#008C95"
   ,headerBoxShadowColor = "#aaaaaa"
   ,headerBoxShadowSize = "2px 2px 2px"
   
   ### sidebar
   ,sidebarBackColor = cssGradientThreeColors(
     direction = "down"
-    ,colorStart = "rgb(229,114,0)"
-    ,colorMiddle = "rgb(231,120,3)"
-    ,colorEnd = "rgb(255,178,9)"
+    ,colorStart = "#E57200"
+    ,colorMiddle = "#E57200"
+    ,colorEnd = "#E57200"
     ,colorStartPos = 0
     ,colorMiddlePos = 50
     ,colorEndPos = 100
@@ -67,15 +69,8 @@ theme_nina <- shinyDashboardThemeDIY(
   ,sidebarTabTextColorSelected = "rgb(0,0,0)"
   ,sidebarTabRadiusSelected = "0px 20px 20px 0px"
   
-  ,sidebarTabBackColorHover = cssGradientThreeColors(
-    direction = "right"
-    ,colorStart = "rgba(44,222,235,1)"
-    ,colorMiddle = "rgba(44,222,235,1)"
-    ,colorEnd = "rgba(0,255,213,1)"
-    ,colorStartPos = 0
-    ,colorMiddlePos = 30
-    ,colorEndPos = 100
-  )
+  ,sidebarTabBackColorHover = "rgba(44,222,235,1)"
+  
   ,sidebarTabTextColorHover = "rgb(50,50,50)"
   ,sidebarTabBorderStyleHover = "none none solid none"
   ,sidebarTabBorderColorHover = "rgb(75,126,151)"
@@ -97,8 +92,8 @@ theme_nina <- shinyDashboardThemeDIY(
   
   ,tabBoxTabColor = "rgb(255,255,255)"
   ,tabBoxTabTextSize = 14
-  ,tabBoxTabTextColor = "rgb( 66,85,99)"
-  ,tabBoxTabTextColorSelected = "rgb(0,0,0)"
+  ,tabBoxTabTextColor = "rgb( 0,0,0)"
+  ,tabBoxTabTextColorSelected = "rgb(210,214,220)"
   ,tabBoxBackColor = "rgb(255,255,255)"
   ,tabBoxHighlightColor = "rgba(44,222,235,1)"
   ,tabBoxBorderRadius = 5
